@@ -112,72 +112,7 @@ if ("IntersectionObserver" in window) {
   revealElements.forEach((element) => element.classList.add("visible"));
 }
 
-const filterButtons = document.querySelectorAll(".filter-button[data-filter]");
-const committeeCards = document.querySelectorAll(".committee-card");
-const committeeSearch = document.getElementById("committeeSearch");
-const clearCommitteeSearch = document.getElementById("clearCommitteeSearch");
-const resetFilters = document.getElementById("resetFilters");
-const committeeCount = document.getElementById("committeeCount");
-let activeFilter = "all";
 
-const normalize = (value) => value.trim().toLowerCase();
-
-const updateCommitteeView = () => {
-  const query = normalize(committeeSearch?.value || "");
-  let visibleCount = 0;
-
-  committeeCards.forEach((card) => {
-    const categories = (card.dataset.category || "").split(" ");
-    const text = normalize(card.textContent || "");
-    const filterMatch = activeFilter === "all" || categories.includes(activeFilter);
-    const searchMatch = !query || text.includes(query);
-    const isVisible = filterMatch && searchMatch;
-
-    card.hidden = !isVisible;
-    if (isVisible) visibleCount += 1;
-  });
-
-  filterButtons.forEach((button) => {
-    const isActive = button.dataset.filter === activeFilter;
-    button.classList.toggle("active", isActive);
-    button.setAttribute("aria-pressed", String(isActive));
-  });
-
-  if (committeeCount) {
-    if (visibleCount === committeeCards.length && !query && activeFilter === "all") {
-      committeeCount.textContent = "Showing all committees";
-    } else if (visibleCount === 0) {
-      committeeCount.textContent = "No committees found";
-    } else {
-      committeeCount.textContent = `Showing ${visibleCount} committee${visibleCount === 1 ? "" : "s"}`;
-    }
-  }
-};
-
-filterButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    activeFilter = button.dataset.filter || "all";
-    updateCommitteeView();
-  });
-});
-
-committeeSearch?.addEventListener("input", updateCommitteeView);
-
-clearCommitteeSearch?.addEventListener("click", () => {
-  if (committeeSearch) {
-    committeeSearch.value = "";
-    committeeSearch.focus();
-  }
-  updateCommitteeView();
-});
-
-resetFilters?.addEventListener("click", () => {
-  activeFilter = "all";
-  if (committeeSearch) committeeSearch.value = "";
-  updateCommitteeView();
-});
-
-updateCommitteeView();
 
 const chatWindow = document.getElementById("chatWindow");
 const chatTrigger = document.getElementById("chatTrigger");
