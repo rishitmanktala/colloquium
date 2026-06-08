@@ -152,8 +152,8 @@ const intents = [
     id: "greetings",
     keywords: ["hi", "hello", "hey", "hola", "greetings", "good morning", "good afternoon", "good evening", "yo", "wassup"],
     phrases: ["hello there", "is anyone there", "greetings bot", "hi assistant"],
-    answer: "Hello! Welcome to Colloquium 2.0! 👋 How can I assist you today? I can help with dates, fees, registration, committees, venue, and contact details.",
-    suggestions: ["What are the fees?", "Explore Committees", "How do I register?"]
+    answer: "Hello! Welcome to Colloquium 2.0! 👋 How can I assist you today? I can help with dates, fee, registration, committees, venue, and contact details.",
+    suggestions: ["What is the fee?", "Explore Committees", "How do I register?"]
   },
   {
     id: "farewells",
@@ -172,8 +172,8 @@ const intents = [
   {
     id: "fees",
     keywords: ["fee", "fees", "cost", "price", "pricing", "payment", "pay", "charge", "amount", "rupee", "rupees", "inr"],
-    phrases: ["how much does it cost", "what are the fees", "how to pay", "fee structure", "payment details"],
-    answer: "Individual Delegate fee: 2300 INR\nSchool Delegation fee: 2299 INR\nIP fees: 2000 INR\nIPL(TEAM EVENT)\nMINIMUM 2\nMAXIMUM 4\nTEAM OF 2: 4000 INR\nTEAM OF 3: 6000 INR\nTEAM OF 4: 8000 INR",
+    phrases: ["how much does it cost", "what is the fee", "how to pay", "fee structure", "payment details"],
+    answer: "Individual Delegate fee: 2300 INR\nSchool Delegation fee: 2299 INR\nIP fee: 2000 INR\nIPL(TEAM EVENT)\nMINIMUM 2\nMAXIMUM 4\nTEAM OF 2: 4000 INR\nTEAM OF 3: 6000 INR\nTEAM OF 4: 8000 INR",
     suggestions: ["How do I register?", "Dates & Schedule", "Contact details"]
   },
   {
@@ -193,9 +193,9 @@ const intents = [
   {
     id: "registration",
     keywords: ["register", "registration", "form", "apply", "seat", "link", "google form", "join", "enroll", "paying", "screenshot", "mail", "colloquium@suncityschool-37d.com"],
-    phrases: ["how to register", "where is the registration link", "registration steps", "how to apply"],
+    phrases: ["how to register", "how do i register", "where is the registration link", "registration steps", "how to apply"],
     answer: "To register:\n1. Click the registration buttons in the Registration section of the website.\n• Individual Delegation Form: https://forms.gle/Uoqj1fRcY7MJfkh97\n• School Delegation Form: https://forms.gle/TjoibnjD6bvaLffi8\n2. Make the payment.\n3. Email your payment receipt screenshot and details to colloquium@suncityschool-37d.com.",
-    suggestions: ["Show fees", "Contact details", "Explore Committees"]
+    suggestions: ["Show fee", "Contact details", "Explore Committees"]
   },
   {
     id: "committees_general",
@@ -216,70 +216,70 @@ const intents = [
     keywords: ["unsc", "security council", "sahel", "terrorism", "communal"],
     phrases: ["tell me about unsc", "unsc agenda", "unsc topic"],
     answer: "UNSC (United Nations Security Council) Agenda:\n'Reviewing the rise of communal terrorism with special emphasis on the Sahel Region.'",
-    suggestions: ["UNFCCC Info", "All Committees", "Show fees"]
+    suggestions: ["UNFCCC Info", "All Committees", "Show fee"]
   },
   {
     id: "unfccc",
     keywords: ["unfccc", "climate", "carbon", "emissions", "environment", "energy", "sustainable"],
     phrases: ["tell me about unfccc", "unfccc agenda", "climate committee"],
     answer: "UNFCCC (United Nations Framework Convention on Climate Change) Agenda:\n'Deliberation on reducing the effects of carbon emissions with special emphasis on sustainable energy sources.'",
-    suggestions: ["UNSC Info", "All Committees", "Show fees"]
+    suggestions: ["UNSC Info", "All Committees", "Show fee"]
   },
   {
     id: "gfmc",
     keywords: ["gfmc", "finance", "economic", "financial", "crisis", "stability", "market", "money", "restoring"],
     phrases: ["tell me about gfmc", "gfmc agenda", "finance committee"],
     answer: "GFMC (Global Financial Meltdown Council) Agenda:\n'Deliberation on the Global Financial Crisis and measures to restore economic stability.'",
-    suggestions: ["Founders Circle Info", "All Committees", "Show fees"]
+    suggestions: ["Founders Circle Info", "All Committees", "Show fee"]
   },
   {
     id: "founders_circle",
     keywords: ["founders", "circle", "founders circle", "billionaire", "tech", "regulate", "elon", "bezos", "billionaires", "silicon"],
     phrases: ["tell me about founders circle", "founders circle agenda", "billionaires committee"],
     answer: "Founders Circle Agenda:\n'Deliberating the ethical responsibility of tech founders in the age of AI — should billionaire entrepreneurs be regulated by democratic institutions?'",
-    suggestions: ["IMI Info", "All Committees", "Show fees"]
+    suggestions: ["IMI Info", "All Committees", "Show fee"]
   },
   {
     id: "imi",
     keywords: ["imi", "influencer", "influencers", "culture", "media", "social media", "instagram", "tiktok", "youtube"],
     phrases: ["tell me about imi", "imi agenda", "influencer culture"],
     answer: "IMI (Influencers Meet India) Agenda:\n'Discussing Whether Influencer Culture Is Inspiring a Generation or Destroying It.'",
-    suggestions: ["Beginner Committees", "All Committees", "Show fees"]
+    suggestions: ["Beginner Committees", "All Committees", "Show fee"]
   },
   {
     id: "aippm",
     keywords: ["aippm", "parliament", "indian politics", "federal", "state", "union", "centralisation", "parties", "loksabha", "modi"],
     phrases: ["tell me about aippm", "aippm agenda", "indian politics committee"],
     answer: "AIPPM (All India Political Parties Meet) Agenda:\n'Analysing the Centralisation of Power and Federal Tensions Between State Governments and the Union Government.'",
-    suggestions: ["CBI Info", "All Committees", "Show fees"]
+    suggestions: ["CBI Info", "All Committees", "Show fee"]
   },
   {
     id: "cbi",
     keywords: ["cbi", "investigation", "missing", "crisis", "head of state", "prime minister", "election", "national elections"],
     phrases: ["tell me about cbi", "cbi agenda", "crisis committee", "missing head of state"],
     answer: "CBI (Central Bureau of Investigation) Agenda:\n'The Head of the State has gone missing 24 hours before national elections. Intelligence failure, internal betrayal, or foreign conspiracy?'",
-    suggestions: ["Mock Trial Info", "All Committees", "Show fees"]
+    suggestions: ["Mock Trial Info", "All Committees", "Show fee"]
   },
   {
     id: "mock_trial",
     keywords: ["mock", "trial", "mock trial", "court", "prosecution", "defense", "law", "lawyer", "judge", "legal", "courtroom"],
     phrases: ["tell me about mock trial", "mock trial agenda", "legal committee"],
     answer: "Mock Trial Agenda:\n'US format (prosecution v/s defense). Case file will be revealed prior to the conference.'",
-    suggestions: ["IPL Auction Info", "All Committees", "Show fees"]
+    suggestions: ["IPL Auction Info", "All Committees", "Show fee"]
   },
   {
     id: "ipl_auction",
     keywords: ["ipl", "cricket", "auction", "bid", "bidding", "ipl auction", "sports", "dhoni", "kohli", "team", "cricketers"],
     phrases: ["tell me about ipl auction", "ipl auction rules", "cricket auction"],
     answer: "IPL Auction Agenda:\n'Minimum: 2 members. Maximum: 4 members.'",
-    suggestions: ["Mock Trial Info", "All Committees", "Show fees"]
+    suggestions: ["Mock Trial Info", "All Committees", "Show fee"]
   },
   {
     id: "international_press",
     keywords: ["ip", "international press", "press", "journalism", "journalist", "photographer", "caricaturist", "reporter", "newsletter"],
     phrases: ["tell me about international press", "ip agenda", "press committee"],
     answer: "International Press (IP) Agenda:\n'Inviting Journalists, Photographers, and Caricaturists.'",
-    suggestions: ["Beginner Committees", "Fees Info", "How do I register?"]
+    suggestions: ["Beginner Committees", "Fee Info", "How do I register?"]
   },
   {
     id: "contact",
@@ -293,7 +293,7 @@ const intents = [
     keywords: ["brochure", "pdf", "booklet", "download", "guidebook", "rules", "doc", "document"],
     phrases: ["is there a brochure", "download brochure", "read brochure"],
     answer: "Our website contains all the details from the official brochure! For a PDF version, feel free to email colloquium@suncityschool-37d.com and our team will share it with you.",
-    suggestions: ["Explore Committees", "Show fees", "Contact details"]
+    suggestions: ["Explore Committees", "Show fee", "Contact details"]
   },
   {
     id: "about_colloquium",
@@ -313,8 +313,15 @@ const intents = [
     id: "capabilities",
     keywords: ["help", "info", "information", "capabilities", "do", "bot", "assistant", "questions", "ask", "guidance"],
     phrases: ["what can you do", "help me", "how to use this chat", "list of commands"],
-    answer: "I am the Colloquium 2.0 AI Assistant. I can help you with:\n• **Fee structures** (individual, school, and team fees)\n• **Agendas** for all 10 committees\n• **Dates & Schedule** details\n• **Registration steps** & Google Form links\n• **Venue address** & directions\n• **Contact details** for organizers",
-    suggestions: ["What are the fees?", "Explore Committees", "How do I register?"]
+    answer: "I am the Colloquium 2.0 AI Assistant. I can help you with:\n• **Fee structures** (individual, school, and team fee)\n• **Agendas** for all 10 committees\n• **Dates & Schedule** details\n• **Registration steps** & Google Form links\n• **Venue address** & directions\n• **Contact details** for organizers",
+    suggestions: ["What is the fee?", "Explore Committees", "How do I register?"]
+  },
+  {
+    id: "faq",
+    keywords: ["faq", "faqs", "frequently", "asked", "questions", "common", "doubt", "doubts", "clarification"],
+    phrases: ["frequently asked questions", "common questions", "faq section", "any faqs"],
+    answer: "Check out our FAQs section on the website for answers to common questions about dress code, lunch, awards, experience level, and more! Scroll down to the FAQs section or ask me a specific question.",
+    suggestions: ["What is the fee?", "How do I register?", "Explore Committees"]
   }
 ];
 
@@ -449,7 +456,8 @@ const searchPageContent = (queryTokens) => {
     { id: "committees", name: "Committees", selector: "#committees" },
     { id: "fees", name: "Fee Structure", selector: "#fees" },
     { id: "registration", name: "Registration", selector: "#registration" },
-    { id: "contact", name: "Contact Us", selector: "#contact" }
+    { id: "contact", name: "Contact Us", selector: "#contact" },
+    { id: "faq", name: "FAQs", selector: "#faqs" }
   ];
 
   let bestSection = null;
@@ -495,7 +503,7 @@ const searchPageContent = (queryTokens) => {
 
 const getPresetQuestion = (label) => {
   const mapping = {
-    "What are the fees?": "What are the fees?",
+    "What is the fee?": "What is the fee?",
     "Explore Committees": "What are the committees?",
     "How do I register?": "How do I register?",
     "Show dates": "When is the conference?",
@@ -512,14 +520,15 @@ const getPresetQuestion = (label) => {
     "IMI Info": "Tell me about IMI",
     "Mock Trial Info": "Tell me about Mock Trial",
     "International Press": "Tell me about International Press",
-    "Fees Info": "What are the fees?",
+    "Fee Info": "What is the fee?",
     "How to register?": "How do I register?",
     "How to apply": "How do I register?",
     "From The Secretariat": "Who is in the Secretariat?",
     "Our Vision": "What is the vision of Colloquium?",
     "Dates & Schedule": "When is the conference?",
     "All Committees": "What are the committees?",
-    "Show fees": "What are the fees?"
+    "Show fee": "What is the fee?",
+    "FAQs": "What are the FAQs?"
   };
   return mapping[label] || label;
 };
@@ -529,7 +538,7 @@ const getBotResponse = (message) => {
   if (!message || typeof message !== "string") {
     return {
       answer: "Please ask a question, and I'll do my best to help!",
-      suggestions: ["What are the fees?", "Explore Committees", "How do I register?"]
+      suggestions: ["What is the fee?", "Explore Committees", "How do I register?"]
     };
   }
 
@@ -545,7 +554,7 @@ const getBotResponse = (message) => {
   if (queryTokens.length === 0) {
     return {
       answer: "Please ask a question, and I'll do my best to help!",
-      suggestions: ["What are the fees?", "Explore Committees", "How do I register?"]
+      suggestions: ["What is the fee?", "Explore Committees", "How do I register?"]
     };
   }
 
@@ -693,7 +702,7 @@ const getBotResponse = (message) => {
       answer: `I couldn't find a direct chatbot answer, but I found relevant details in the **${pageMatch.sectionName}** section on the website page.`,
       suggestions: [
         `Go to ${pageMatch.sectionName}`,
-        "What are the fees?",
+        "What is the fee?",
         "Explore Committees",
         "How do I register?"
       ]
@@ -704,7 +713,7 @@ const getBotResponse = (message) => {
   return {
     answer: "I couldn't find a direct answer to that. Here are some topics I can help you with:",
     suggestions: [
-      "What are the fees?",
+      "What is the fee?",
       "Explore Committees",
       "How do I register?",
       "Show dates",
@@ -793,7 +802,8 @@ const sendMessage = (presetQuestion) => {
       "Committees": "#committees",
       "Fee Structure": "#fees",
       "Registration": "#registration",
-      "Contact Us": "#contact"
+      "Contact Us": "#contact",
+      "FAQs": "#faqs"
     };
     const selector = mapping[sectionName];
     const element = typeof document !== 'undefined' ? document.querySelector(selector) : null;
@@ -809,9 +819,9 @@ const sendMessage = (presetQuestion) => {
       indicator?.remove();
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
-        appendMessage(`I have smoothly scrolled the page to the **${sectionName}** section for you! Let me know if you need help with anything else.`, "bot", ["What are the fees?", "Explore Committees", "How do I register?"]);
+        appendMessage(`I have smoothly scrolled the page to the **${sectionName}** section for you! Let me know if you need help with anything else.`, "bot", ["What is the fee?", "Explore Committees", "How do I register?"]);
       } else {
-        appendMessage(`I attempted to scroll to the **${sectionName}** section, but couldn't locate it on the page.`, "bot", ["What are the fees?", "Explore Committees"]);
+        appendMessage(`I attempted to scroll to the **${sectionName}** section, but couldn't locate it on the page.`, "bot", ["What is the fee?", "Explore Committees"]);
       }
       setChatBusy(false);
       chatInput?.focus();
