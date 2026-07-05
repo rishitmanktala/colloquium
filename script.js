@@ -788,7 +788,36 @@ const setChatBusy = (busy) => {
   }
 };
 
-const sendMessage = (presetQuestion) => {
+let conversationHistory = [];
+
+const getSuggestionsFromText = (text) => {
+  const lowercase = text.toLowerCase();
+  const suggestions = [];
+  if (lowercase.includes("committee") || lowercase.includes("agenda") || lowercase.includes("unsc") || lowercase.includes("unfccc")) {
+    suggestions.push("Beginner Committees");
+  }
+  if (lowercase.includes("fee") || lowercase.includes("pay") || lowercase.includes("cost") || lowercase.includes("inr")) {
+    suggestions.push("How to register?");
+  }
+  if (lowercase.includes("register") || lowercase.includes("registration") || lowercase.includes("form") || lowercase.includes("apply")) {
+    suggestions.push("Fee Info");
+  }
+  if (lowercase.includes("contact") || lowercase.includes("phone") || lowercase.includes("email") || lowercase.includes("instagram")) {
+    suggestions.push("Dates & Schedule");
+  }
+  
+  const defaults = ["What is the fee?", "Explore Committees", "How do I register?", "Contact details"];
+  for (const def of defaults) {
+    if (suggestions.length >= 3) break;
+    const mapped = getPresetQuestion(def);
+    if (!suggestions.includes(def) && !suggestions.includes(mapped)) {
+      suggestions.push(def);
+    }
+  }
+  return suggestions.slice(0, 3);
+};
+
+const sendMessage = async (presetQuestion) => {
   const text = (presetQuestion || chatInput?.value || "").trim();
   if (!text) return;
 
@@ -834,15 +863,52 @@ const sendMessage = (presetQuestion) => {
   setChatBusy(true);
 
   const indicator = showTypingIndicator();
-  const delay = 420 + Math.random() * 360;
+  conversationHistory.push({ role: "user", content: text });
+  
+  if (conversationHistory.length > 20) {
+    conversationHistory = conversationHistory.slice(-20);
+  }
 
-  window.setTimeout(() => {
+  try {
+    const response = await fetch("/api/chat", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        messages: conversationHistory
+      })
+    });
+
     indicator?.remove();
-    const botResponse = getBotResponse(text);
-    appendMessage(botResponse.answer, "bot", botResponse.suggestions);
+
+    if (!response.ok) {
+      throw new Error(`Server returned status ${response.status}`);
+    }
+
+    const data = await response.json();
+    const reply = data.choices[0].message.content;
+
+    conversationHistory.push({ role: "assistant", content: reply });
+    
+    if (conversationHistory.length > 20) {
+      conversationHistory = conversationHistory.slice(-20);
+    }
+
+    const suggestions = getSuggestionsFromText(reply);
+    appendMessage(reply, "bot", suggestions);
+  } catch (error) {
+    indicator?.remove();
+    console.error("Chat Error:", error);
+    
+    // Graceful offline fallback
+    const fallback = getBotResponse(text);
+    conversationHistory.push({ role: "assistant", content: fallback.answer });
+    appendMessage(fallback.answer, "bot", fallback.suggestions);
+  } finally {
     setChatBusy(false);
     chatInput?.focus();
-  }, delay);
+  }
 };
 
 sendChat?.addEventListener("click", () => sendMessage());
