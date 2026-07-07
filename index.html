@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@400;500;600;700;800&display=swap"
     rel="stylesheet" />
   <link rel="icon" type="image/png" href="./assets/img/colloquium-emblem.png" />
   <link rel="apple-touch-icon" href="./assets/img/colloquium-emblem.png" />
@@ -27,6 +27,19 @@
 
 <body>
   <a class="skip-link" href="#top">Skip to content</a>
+
+  <!-- Ambient mesh background -->
+  <div class="bg-mesh" aria-hidden="true">
+    <span class="blob blob-1"></span>
+    <span class="blob blob-2"></span>
+    <span class="blob blob-3"></span>
+    <span class="grain"></span>
+  </div>
+
+  <!-- Custom cursor (desktop only) -->
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
   <header class="mobile-header">
     <a class="mobile-brand" href="#top">
@@ -60,7 +73,7 @@
         <a href="#contact">Contact</a>
       </div>
       <div class="sidebar-footer">
-        <a class="sidebar-cta" href="#registration">Register Now</a>
+        <a class="sidebar-cta magnetic" href="#registration">Register Now</a>
         <p class="sidebar-info">22-23 August 2026</p>
       </div>
     </div>
@@ -70,12 +83,16 @@
   <main id="top" tabindex="-1">
     <section class="hero-section" aria-labelledby="hero-title">
       <div class="hero-overlay"></div>
+      <div class="hero-orbs" aria-hidden="true"><span></span><span></span><span></span></div>
       <div class="hero-content">
         <div class="hero-header">
-          <img class="hero-emblem" src="./assets/img/colloquium-emblem.png" alt="" />
+          <div class="hero-emblem-wrap" id="emblemTilt">
+            <img class="hero-emblem" src="./assets/img/colloquium-emblem.png" alt="" />
+            <span class="emblem-ring"></span>
+          </div>
           <p class="school-line">Suncity School Sector 37D, Gurugram presents</p>
         </div>
-        <h1 id="hero-title">Colloquium</h1>
+        <h1 id="hero-title" data-text="Colloquium">Colloquium</h1>
         <p class="hero-subtitle">Model United Nations</p>
         <p class="edition">2nd Edition</p>
         <div class="date-block" aria-label="Conference dates">
@@ -87,13 +104,19 @@
           debate global issues and shape meaningful change.
         </p>
         <div class="hero-actions">
-          <a class="primary-button" href="#registration">Register Now</a>
-          <a class="secondary-button" href="#committees">Explore Committees</a>
-        </div>
-        <div class="quick-facts" aria-label="Quick event facts">
-          <span>22-23 Aug 2026</span><span>Gurugram</span><span>10 Committees</span><span>Beginner Friendly</span>
+          <a class="primary-button magnetic" href="#registration"><span>Register Now</span></a>
+          <a class="secondary-button magnetic" href="#committees"><span>Explore Committees</span></a>
         </div>
       </div>
+      <div class="marquee-strip" aria-label="Quick event facts">
+        <div class="marquee-track" id="quickFactsTrack">
+          <span><svg viewBox="0 0 24 24" class="mq-icon"><path d="M8 2v3M16 2v3M3.5 9h17M5 5h14a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"/></svg>22–23 Aug 2026</span>
+          <span><svg viewBox="0 0 24 24" class="mq-icon"><path d="M12 22s7-6.1 7-12a7 7 0 0 0-14 0c0 5.9 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>Gurugram</span>
+          <span><svg viewBox="0 0 24 24" class="mq-icon"><path d="M3 21V9l9-6 9 6v12M9 21v-6h6v6"/></svg>10 Committees</span>
+          <span><svg viewBox="0 0 24 24" class="mq-icon"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"/></svg>Beginner Friendly</span>
+        </div>
+      </div>
+      <a href="#top" class="scroll-cue" data-scroll-next aria-hidden="true"><span></span></a>
     </section>
 
     <section class="intro-section" aria-labelledby="vision-title">
@@ -121,7 +144,7 @@
             conviction that youth voices matter.</p>
         </div>
         <div class="secretariat-grid">
-          <article class="member-card reveal">
+          <article class="member-card tilt-card reveal">
             <div class="member-image"><img src="./assets/img/portraits/jayashree-patel.jpg" alt="Ms. Jayashree Patel" /></div>
             <div class="member-info">
               <h3>Ms. Jayashree Patel</h3>
@@ -129,7 +152,7 @@
               <p class="member-quote">"Model United Nations is not merely an event&mdash;it is a rehearsal for the future."</p>
             </div>
           </article>
-          <article class="member-card reveal reveal-delay-1">
+          <article class="member-card tilt-card reveal reveal-delay-1">
             <div class="member-image"><img src="./assets/img/portraits/guneet-ohri.jpg" alt="Ms. Guneet Ohri" /></div>
             <div class="member-info">
               <h3>Ms. Guneet Ohri</h3>
@@ -138,7 +161,7 @@
                 responsibly, and act with integrity."</p>
             </div>
           </article>
-          <article class="member-card reveal reveal-delay-2">
+          <article class="member-card tilt-card reveal reveal-delay-2">
             <div class="member-image"><img src="./assets/img/portraits/giggashu-punia.jpg" alt="Mr. Giggashu Punia" /></div>
             <div class="member-info">
               <h3>Mr. Giggashu Punia</h3>
@@ -146,7 +169,7 @@
               <p class="member-quote">"Think like diplomats, engage like policymakers, and speak like leaders."</p>
             </div>
           </article>
-          <article class="member-card reveal reveal-delay-3">
+          <article class="member-card tilt-card reveal reveal-delay-3">
             <div class="member-image"><img src="./assets/img/portraits/ranvir-srivastava.jpg" alt="Ranvir Srivastava" /></div>
             <div class="member-info">
               <h3>Ranvir Srivastava</h3>
@@ -165,8 +188,14 @@
           <h2 id="committees-title">Committees And Agendas</h2>
           <p>Choose your room: crisis, climate, politics, press, law, finance, culture, or sport.</p>
         </div>
-        <div class="committee-grid">
-          <article class="committee-card reveal" data-category="global">
+        <div class="committee-filters" role="tablist" aria-label="Filter committees by category">
+          <button type="button" class="filter-pill active" data-filter="all" role="tab" aria-selected="true">All</button>
+          <button type="button" class="filter-pill" data-filter="global" role="tab" aria-selected="false">Global</button>
+          <button type="button" class="filter-pill" data-filter="india" role="tab" aria-selected="false">India</button>
+          <button type="button" class="filter-pill" data-filter="special" role="tab" aria-selected="false">Special</button>
+        </div>
+        <div class="committee-grid" id="committeeGrid">
+          <article class="committee-card tilt-card reveal" data-category="global">
             <div class="committee-info">
               <img src="./assets/img/committee-crops/unsc.jpg" alt="UNSC" loading="lazy" decoding="async" />
               <div class="committee-details">
@@ -175,7 +204,7 @@
               </div>
             </div>
           </article>
-          <article class="committee-card reveal" data-category="global">
+          <article class="committee-card tilt-card reveal" data-category="global">
             <div class="committee-info">
               <img src="./assets/img/committee-crops/unfccc.jpg" alt="UNFCCC" loading="lazy" decoding="async" />
               <div class="committee-details">
@@ -184,7 +213,7 @@
               </div>
             </div>
           </article>
-          <article class="committee-card reveal" data-category="global">
+          <article class="committee-card tilt-card reveal" data-category="global">
             <div class="committee-info">
               <img src="./assets/img/committee-crops/gfmc.jpg" alt="GFMC" loading="lazy" decoding="async" />
               <div class="committee-details">
@@ -193,7 +222,7 @@
               </div>
             </div>
           </article>
-          <article class="committee-card reveal" data-category="special">
+          <article class="committee-card tilt-card reveal" data-category="special">
             <div class="committee-info">
               <img src="./assets/img/committee-crops/founders-circle.jpg" alt="Founders Circle" loading="lazy" decoding="async" />
               <div class="committee-details">
@@ -202,7 +231,7 @@
               </div>
             </div>
           </article>
-          <article class="committee-card reveal" data-category="special">
+          <article class="committee-card tilt-card reveal" data-category="special">
             <div class="committee-info">
               <img src="./assets/img/committee-crops/imi.jpg" alt="IMI" loading="lazy" decoding="async" />
               <div class="committee-details">
@@ -211,7 +240,7 @@
               </div>
             </div>
           </article>
-          <article class="committee-card reveal" data-category="india">
+          <article class="committee-card tilt-card reveal" data-category="india">
             <div class="committee-info">
               <img src="./assets/img/committee-crops/aippm.jpg" alt="AIPPM" loading="lazy" decoding="async" />
               <div class="committee-details">
@@ -220,7 +249,7 @@
               </div>
             </div>
           </article>
-          <article class="committee-card reveal" data-category="india special">
+          <article class="committee-card tilt-card reveal" data-category="india special">
             <div class="committee-info">
               <img src="./assets/img/committee-crops/cbi.jpg" alt="CBI" loading="lazy" decoding="async" />
               <div class="committee-details">
@@ -229,7 +258,7 @@
               </div>
             </div>
           </article>
-          <article class="committee-card reveal" data-category="special">
+          <article class="committee-card tilt-card reveal" data-category="special">
             <div class="committee-info">
               <img src="./assets/img/committee-crops/mock-trial.jpg" alt="Mock Trial" loading="lazy" decoding="async" />
               <div class="committee-details">
@@ -238,7 +267,7 @@
               </div>
             </div>
           </article>
-          <article class="committee-card reveal" data-category="special">
+          <article class="committee-card tilt-card reveal" data-category="special">
             <div class="committee-info">
               <img src="./assets/img/committee-crops/ipl-auction.jpg" alt="IPL Auction" loading="lazy" decoding="async" />
               <div class="committee-details">
@@ -247,7 +276,7 @@
               </div>
             </div>
           </article>
-          <article class="committee-card reveal" data-category="special">
+          <article class="committee-card tilt-card reveal" data-category="special">
             <div class="committee-info">
               <img src="./assets/img/committee-crops/international-press.jpg" alt="International Press" loading="lazy" decoding="async" />
               <div class="committee-details">
@@ -268,19 +297,19 @@
           <p class="fee-note">The registration fee structure for all individual and team events at Colloquium 2.0.</p>
         </div>
         <div class="fee-grid">
-          <article>
+          <article class="tilt-card">
             <span>Individual Delegate Fee</span>
-            <strong>2300<span class="fee-currency">INR</span></strong>
+            <strong><span class="count-value" data-count="2300">0</span><span class="fee-currency">INR</span></strong>
           </article>
-          <article>
+          <article class="tilt-card">
             <span>School Delegation Fee</span>
-            <strong>2299<span class="fee-currency">INR</span></strong>
+            <strong><span class="count-value" data-count="2299">0</span><span class="fee-currency">INR</span></strong>
           </article>
-          <article>
+          <article class="tilt-card">
             <span>IP Fee</span>
-            <strong>2000<span class="fee-currency">INR</span></strong>
+            <strong><span class="count-value" data-count="2000">0</span><span class="fee-currency">INR</span></strong>
           </article>
-          <article>
+          <article class="tilt-card">
             <span>IPL (Team Event)</span>
             <strong class="fee-limit">MIN 2 / MAX 4</strong>
             <div class="fee-team-list">
@@ -318,10 +347,10 @@
             <span>Confirm Seat</span>
           </div>
           <div class="registration-actions">
-            <a class="primary-button" href="https://forms.gle/Uoqj1fRcY7MJfkh97" target="_blank"
-              rel="noopener noreferrer">Individual Delegation</a>
-            <a class="secondary-button" href="https://forms.gle/TjoibnjD6bvaLffi8" target="_blank"
-              rel="noopener noreferrer">School Delegation</a>
+            <a class="primary-button magnetic" href="https://forms.gle/Uoqj1fRcY7MJfkh97" target="_blank"
+              rel="noopener noreferrer"><span>Individual Delegation</span></a>
+            <a class="secondary-button magnetic" href="https://forms.gle/TjoibnjD6bvaLffi8" target="_blank"
+              rel="noopener noreferrer"><span>School Delegation</span></a>
           </div>
         </div>
       </div>
@@ -415,11 +444,16 @@
     </div>
     <button class="chat-trigger" id="chatTrigger" type="button" aria-label="Open AI Chat" aria-controls="chatWindow"
       aria-expanded="false">
-      <img src="https://cdn-icons-png.flaticon.com/512/4712/4712045.png" alt="AI icon">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 2C6.48 2 2 6.48 2 12c0 2.45.88 4.7 2.33 6.47L3 22l3.63-1.13C8.28 21.57 10.07 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z"/>
+      </svg>
     </button>
   </div>
 
   <footer class="site-footer" role="contentinfo">
+    <svg class="footer-wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,32 C240,64 480,0 720,16 C960,32 1200,64 1440,24 L1440,0 L0,0 Z"></path>
+    </svg>
     <div class="footer-inner">
       <p class="footer-brand">Colloquium 2.0 &mdash; Model United Nations</p>
       <p class="footer-credit">Organised by <a href="https://www.suncityschool-37d.com/" target="_blank" rel="noopener noreferrer">Suncity School Sector 37D</a>, Gurugram &bull; 22&ndash;23 August 2026</p>
@@ -427,7 +461,13 @@
     </div>
   </footer>
 
+  <button type="button" id="backToTop" class="back-to-top magnetic" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <script src="./config.js"></script>
   <script src="./script.js"></script>
+  <script src="./effects.js" defer></script>
 </body>
 
 </html>
