@@ -199,3 +199,34 @@
     });
   }
 })();
+
+/* Image Carousel - Change every 2 seconds */
+(() => {
+  const images = [
+    './assets/img/IMG_2253.JPG',
+    './assets/img/IMG_2271.JPG',
+    './assets/img/IMG_2301.JPG',
+    './assets/img/IMG_2366.JPG',
+    './assets/img/IMG_2393.JPG',
+    './assets/img/IMG_2534.JPG',
+    './assets/img/IMG_2615.JPG',
+    './assets/img/IMG_2660.JPG',
+    './assets/img/IMG_2796.JPG',
+    './assets/img/IMG_2819.JPG'
+  ];
+  
+  let currentIndex = 0;
+  const carousel = document.getElementById('imageCarousel');
+  const counter = document.getElementById('current');
+  
+  if (carousel) {
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % images.length;
+      const img = carousel.querySelector('.carousel-img');
+      img.style.opacity = '0.7';
+      img.src = images[currentIndex];
+      img.style.opacity = '1';
+      if (counter) counter.textContent = currentIndex + 1;
+    }, 2000);
+  }
+})();

@@ -68,8 +68,9 @@
         <a href="#top" class="active" aria-current="page">Home</a>
         <a href="#committees">Committees</a>
         <a href="#fees">Fee</a>
-        <a href="#registration">Register</a>
         <a href="#faqs">FAQs</a>
+        <a href="#registration">Register</a>
+        <a href="#media">Media</a>
         <a href="#contact">Contact</a>
       </div>
       <div class="sidebar-footer">
@@ -119,6 +120,23 @@
       <a href="#top" class="scroll-cue" data-scroll-next aria-hidden="true"><span></span></a>
     </section>
 
+    <section class="credits-section reveal" aria-labelledby="credits-title">
+      <div class="credits-frame">
+        <h3 id="credits-title" class="credits-title">Website Built By</h3>
+        <div class="credits-grid">
+          <div class="credit-card">
+            <h4>Rishit Manktala</h4>
+          </div>
+          <div class="credit-card">
+            <h4>Ayush Jain</h4>
+          </div>
+          <div class="credit-card">
+            <h4>Yuvraj</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="intro-section" aria-labelledby="vision-title">
       <div class="section-shell split reveal">
         <div class="section-col">
@@ -144,14 +162,6 @@
             conviction that youth voices matter.</p>
         </div>
         <div class="secretariat-grid">
-          <article class="member-card tilt-card reveal">
-            <div class="member-image"><img src="./assets/img/portraits/jayashree-patel.jpg" alt="Ms. Jayashree Patel" /></div>
-            <div class="member-info">
-              <h3>Ms. Jayashree Patel</h3>
-              <p class="member-title">Principal</p>
-              <p class="member-quote">"Model United Nations is not merely an event&mdash;it is a rehearsal for the future."</p>
-            </div>
-          </article>
           <article class="member-card tilt-card reveal reveal-delay-1">
             <div class="member-image"><img src="./assets/img/portraits/guneet-ohri.jpg" alt="Ms. Guneet Ohri" /></div>
             <div class="member-info">
@@ -159,6 +169,14 @@
               <p class="member-title">Director</p>
               <p class="member-quote">"May this conference inspire each one of you to think critically, lead
                 responsibly, and act with integrity."</p>
+            </div>
+          </article>
+          <article class="member-card tilt-card reveal">
+            <div class="member-image"><img src="./assets/img/portraits/jayashree-patel.jpg" alt="Ms. Jayashree Patel" /></div>
+            <div class="member-info">
+              <h3>Ms. Jayashree Patel</h3>
+              <p class="member-title">Principal</p>
+              <p class="member-quote">"Model United Nations is not merely an event&mdash;it is a rehearsal for the future."</p>
             </div>
           </article>
           <article class="member-card tilt-card reveal reveal-delay-2">
@@ -351,6 +369,8 @@
               rel="noopener noreferrer"><span>Individual Delegation</span></a>
             <a class="secondary-button magnetic" href="https://forms.gle/TjoibnjD6bvaLffi8" target="_blank"
               rel="noopener noreferrer"><span>School Delegation</span></a>
+              <a class="primary-button magnetic" href="https://docs.google.com/forms/d/e/1FAIpQLScmG4d3pTbk0J0xZk-CnWGgKYD_lAbUUMh4ZK_pvNjjinAZog/viewform" target="_blank"
+              rel="noopener noreferrer"><span>Suncity School 37D Internal Deligation</span></a>
           </div>
         </div>
       </div>
@@ -399,6 +419,315 @@
         </div>
       </div>
     </section>
+
+
+
+    
+
+    
+
+        <!-- ================= Colloquium MUN Vertical Gallery Start ================= -->
+<style>
+  /* Scoped CSS to prevent conflicts with existing website */
+  .cmun-gallery-section {
+    --cmun-bg: #070014;
+    --cmun-purple-1: #7c3aed;
+    --cmun-purple-2: #a855f7;
+    --cmun-purple-3: #c084fc;
+    --cmun-glow: rgba(168,85,247,.45);
+    --cmun-accent: #f0abfc;
+    --cmun-text: #f5f3ff;
+    --cmun-muted: #b9a8d8;
+    --cmun-border: rgba(192,132,252,.18);
+    
+    position: relative;
+    z-index: 1;
+    padding: 60px 20px 80px;
+    overflow: hidden;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: transparent;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  /* Top and Bottom fade-out gradients */
+  .cmun-gallery-section::before {
+    content: ""; position: absolute; top: 160px; left: 0; right: 0; height: 140px; z-index: 6; pointer-events: none;
+    background: linear-gradient(180deg, var(--cmun-bg), transparent);
+  }
+  .cmun-gallery-section::after {
+    content: ""; position: absolute; bottom: 140px; left: 0; right: 0; height: 160px; z-index: 6; pointer-events: none;
+    background: linear-gradient(0deg, var(--cmun-bg), transparent);
+  }
+
+  .cmun-stage {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    height: 640px;
+    perspective: 1400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-style: preserve-3d;
+  }
+
+  .cmun-stage-glow {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px; height: 120%;
+    background: radial-gradient(ellipse at center, rgba(124,58,237,0.25), transparent 60%);
+    filter: blur(40px);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .cmun-slide {
+    position: absolute;
+    width: 320px; height: 420px;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--cmun-border);
+    /* Smoother, cinematic transition */
+    transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1), opacity 1.2s ease, filter 1.2s ease;
+    box-shadow: 0 30px 60px -20px rgba(0,0,0,.7);
+    cursor: pointer;
+    will-change: transform, opacity, filter;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+  }
+
+  .cmun-slide img { 
+    width: 100%; height: 100%; object-fit: cover; 
+    pointer-events: none; /* prevents drag glitches */
+  }
+  
+  .cmun-slide::before {
+    content: ""; position: absolute; inset: 0; z-index: 2;
+    background: linear-gradient(180deg, transparent 40%, rgba(7,0,20,.9) 100%);
+    pointer-events: none;
+  }
+  
+  .cmun-slide-caption {
+    position: absolute; bottom: 24px; left: 24px; right: 24px; z-index: 3;
+    transform: translateY(20px); opacity: 0; 
+    transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    pointer-events: none;
+  }
+  
+  .cmun-slide.is-active .cmun-slide-caption { transform: translateY(0); opacity: 1; }
+  .cmun-slide-caption h4 { 
+    font-family: 'Syne', sans-serif; font-weight: 700; font-size: 22px; margin-bottom: 6px; 
+    background: linear-gradient(135deg, #fff, #e9d5ff); 
+    -webkit-background-clip: text; background-clip: text; color: transparent; 
+  }
+  .cmun-slide-caption p { color: var(--cmun-muted); font-size: 13px; }
+
+  /* 3D Vertical Transforms */
+  .cmun-slide.is-active { transform: translateY(0) translateZ(100px) rotateX(0deg) scale(1.1); z-index: 10; filter: none; }
+  .cmun-slide.is-prev { transform: translateY(-280px) translateZ(-100px) rotateX(40deg) scale(.85); z-index: 5; filter: brightness(.55) saturate(.7); }
+  .cmun-slide.is-next { transform: translateY(280px) translateZ(-100px) rotateX(-40deg) scale(.85); z-index: 5; filter: brightness(.55) saturate(.7); }
+  .cmun-slide.is-far-prev { transform: translateY(-460px) translateZ(-300px) rotateX(50deg) scale(.7); z-index: 1; opacity:.3; filter: brightness(.3) blur(2px); }
+  .cmun-slide.is-far-next { transform: translateY(460px) translateZ(-300px) rotateX(-50deg) scale(.7); z-index: 1; opacity:.3; filter: brightness(.3) blur(2px); }
+  .cmun-slide.is-hidden { opacity: 0; transform: translateZ(-600px); pointer-events: none; }
+
+  /* Controls */
+  .cmun-controls {
+    display: flex; justify-content: center; gap: 14px; margin-top: 40px; align-items: center; z-index: 7;
+  }
+  .cmun-ctrl {
+    width: 52px; height: 52px; border-radius: 50%;
+    background: rgba(168,85,247,.08); border: 1px solid var(--cmun-border);
+    color: var(--cmun-text); font-size: 18px; cursor: pointer;
+    display: grid; place-items: center;
+    transition: all .3s; backdrop-filter: blur(10px);
+  }
+  .cmun-ctrl:hover { background: linear-gradient(135deg, #7c3aed, #c084fc); border-color: transparent; box-shadow: 0 8px 24px var(--cmun-glow); transform: scale(1.05); }
+  .cmun-dots { display: flex; gap: 8px; }
+  .cmun-dots button {
+    width: 8px; height: 8px; border-radius: 50%; border: none; cursor: pointer;
+    background: rgba(192,132,252,.25); transition: all .4s; padding: 0;
+  }
+  .cmun-dots button.active { width: 30px; border-radius: 4px; background: linear-gradient(90deg, #7c3aed, #c084fc); }
+
+  /* Lightbox for image enlargement */
+  .cmun-lightbox {
+    position: fixed; inset: 0; z-index: 9999;
+    background: rgba(7, 0, 20, 0.85);
+    backdrop-filter: blur(20px);
+    display: none; 
+    justify-content: center; align-items: center;
+    opacity: 0; transition: opacity 0.4s ease;
+  }
+  .cmun-lightbox.active { display: flex; opacity: 1; }
+  .cmun-lightbox img {
+    max-width: 85vw; max-height: 85vh; border-radius: 12px;
+    box-shadow: 0 20px 80px rgba(124, 58, 237, 0.5);
+    border: 1px solid var(--cmun-border);
+    transform: scale(0.9); transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+  .cmun-lightbox.active img { transform: scale(1); }
+  .cmun-close-btn {
+    position: absolute; top: 30px; right: 40px; 
+    color: #fff; font-size: 42px; cursor: pointer; 
+    z-index: 10000; line-height: 1; font-weight: 300;
+    transition: transform 0.3s, color 0.3s;
+  }
+  .cmun-close-btn:hover { transform: rotate(90deg); color: var(--cmun-accent); }
+
+  @media (max-width: 768px) {
+    .cmun-slide { width: 260px; height: 340px; }
+    .cmun-stage { height: 520px; }
+    .cmun-slide.is-active { transform: translateY(0) translateZ(80px) scale(1.05); }
+    .cmun-slide.is-prev { transform: translateY(-200px) translateZ(-80px) rotateX(40deg) scale(.8); }
+    .cmun-slide.is-next { transform: translateY(200px) translateZ(-80px) rotateX(-40deg) scale(.8); }
+    .cmun-slide.is-far-prev, .cmun-slide.is-far-next { opacity: 0; }
+  }
+</style>
+
+<!-- 1. Add Google Fonts to your <head> if not already there -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- 2. Paste this section anywhere in your <body> -->
+<section class="cmun-gallery-section">
+  <div class="cmun-stage" id="cmun-stage">
+    <div class="cmun-stage-glow"></div>
+    <!-- Slides are generated dynamically by JS -->
+  </div>
+
+  <div class="cmun-controls">
+    <button class="cmun-ctrl" id="cmun-prev" aria-label="Previous">↑</button>
+    <div class="cmun-dots" id="cmun-dots"></div>
+    <button class="cmun-ctrl" id="cmun-next" aria-label="Next">↓</button>
+  </div>
+</section>
+
+<!-- 3. Lightbox container -->
+<div class="cmun-lightbox" id="cmun-lightbox">
+  <span class="cmun-close-btn" id="cmun-close-btn">×</span>
+  <img src="" alt="Enlarged view" id="cmun-lb-img">
+</div>
+
+<script>
+  (function() {
+    // Gallery Data
+    const slidesData = [
+      { src: 'https://z-cdn-media.chatglm.cn/files/399e0fe7-5978-4fc6-9fd7-1da4e86a670c.png?auth_key=1884307016-e429cf752df746038830a983e77df08e-0-b101a8ff95048c679c69c47c5deddc44', title: 'The Opening', desc: 'Colloquium MUN v2.0 — a stage set for global dialogue.' },
+      { src: 'https://z-cdn-media.chatglm.cn/files/c21f85fd-1e6e-4638-9a16-c75473fdc1d0.JPG?auth_key=1884307016-3069b22c722549429c0c8935bffb9400-0-c029025ee16b4c538955e1002b1b859b', title: 'Rhythms of Heritage', desc: 'A cultural tribute performed by delegates.' },
+      { src: 'https://z-cdn-media.chatglm.cn/files/5d26ac0b-3577-46db-abcb-cbec00f56380.JPG?auth_key=1884307016-0a5970fce88243cc9c43fe6a5ab09fa5-0-4392165496ddb54d0deeb227754e37dd', title: 'Voice of the House', desc: 'Keynote address from the Suncity podium.' },
+      { src: 'https://z-cdn-media.chatglm.cn/files/ddf30b20-2af7-41fa-be6f-daddaabb1a72.JPG?auth_key=1884307016-6d51ddb97bc84fe6bb8bbe255154a23d-0-31929b03ba2628c603c011a1d233c9d1', title: 'Delegation Floor', desc: 'Pakistan takes the table in committee.' },
+      { src: 'https://z-cdn-media.chatglm.cn/files/1e813870-560b-4d0e-92b1-51fdee091b11.JPG?auth_key=1884307016-71c6c3981c934599ae4bfcae2b2d299b-0-132e829ebc8f7302e642cdef80c8666c', title: 'Beyond the Sky', desc: 'UNCOPOUS — the peaceful uses of outer space.' }
+    ];
+
+    const stage = document.getElementById('cmun-stage');
+    const dotsWrap = document.getElementById('cmun-dots');
+    let current = 0;
+    let autoScroll;
+
+    // Generate slides
+    slidesData.forEach((data, i) => {
+      const slide = document.createElement('div');
+      slide.className = 'cmun-slide';
+      slide.dataset.i = i;
+      slide.innerHTML = `
+        <img src="${data.src}" alt="${data.title}">
+        <div class="cmun-slide-caption">
+          <h4>${data.title}</h4>
+          <p>${data.desc}</p>
+        </div>
+      `;
+      stage.appendChild(slide);
+
+      // Generate dots
+      const dot = document.createElement('button');
+      dot.addEventListener('click', () => { go(i); resetAutoScroll(); });
+      dotsWrap.appendChild(dot);
+    });
+
+    const slides = Array.from(document.querySelectorAll('.cmun-slide'));
+    const dots = Array.from(dotsWrap.children);
+
+    function go(n) {
+      current = (n + slides.length) % slides.length;
+      slides.forEach((s, i) => {
+        s.classList.remove('is-active', 'is-prev', 'is-next', 'is-far-prev', 'is-far-next', 'is-hidden');
+        let diff = i - current;
+        if (diff === 0) s.classList.add('is-active');
+        else if (diff === -1 || (current === 0 && i === slides.length - 1)) s.classList.add('is-prev');
+        else if (diff === 1 || (current === slides.length - 1 && i === 0)) s.classList.add('is-next');
+        else if (diff < -1) s.classList.add('is-far-prev');
+        else s.classList.add('is-far-next');
+      });
+      dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+
+    // Controls
+    document.getElementById('cmun-prev').addEventListener('click', () => { go(current - 1); resetAutoScroll(); });
+    document.getElementById('cmun-next').addEventListener('click', () => { go(current + 1); resetAutoScroll(); });
+    
+    // Slide Click Logic (Enlarge if active, navigate if not)
+    slides.forEach((s, i) => s.addEventListener('click', () => { 
+      if(s.classList.contains('is-active')) {
+        openLightbox(slidesData[i].src);
+      } else {
+        go(i); 
+        resetAutoScroll();
+      }
+    }));
+
+    // Keyboard Navigation
+    document.addEventListener('keydown', e => {
+      if(e.key === 'ArrowUp') { go(current - 1); resetAutoScroll(); }
+      if(e.key === 'ArrowDown') { go(current + 1); resetAutoScroll(); }
+      if(e.key === 'Escape') closeLightbox();
+    });
+
+    // Drag / Swipe Controls
+    let startY = null;
+    stage.addEventListener('pointerdown', e => startY = e.clientY);
+    stage.addEventListener('pointerup', e => {
+      if(startY === null) return;
+      const dy = e.clientY - startY;
+      if(Math.abs(dy) > 50) { go(current + (dy < 0 ? 1 : -1)); resetAutoScroll(); }
+      startY = null;
+    });
+
+    // Auto-scroll functionality (Continuous, does not stop on hover)
+    function startAutoScroll() {
+      autoScroll = setInterval(() => go(current + 1), 3500); 
+    }
+    function resetAutoScroll() {
+      clearInterval(autoScroll);
+      startAutoScroll();
+    }
+
+    // Lightbox Logic
+    const lightbox = document.getElementById('cmun-lightbox');
+    const lbImg = document.getElementById('cmun-lb-img');
+    const closeBtn = document.getElementById('cmun-close-btn');
+
+    function openLightbox(src) {
+      lbImg.src = src;
+      lightbox.classList.add('active');
+      clearInterval(autoScroll); // Pause auto scroll only when viewing full image
+    }
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      startAutoScroll(); // Resume auto scroll
+    }
+    closeBtn.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => { if(e.target === lightbox) closeLightbox(); });
+
+    // Initialize
+    go(0);
+    startAutoScroll();
+  })();
+</script>
+<!-- ================= Colloquium MUN Vertical Gallery End ================= -->
 
     <section id="contact" class="contact-section" aria-labelledby="contact-title">
       <div class="contact-frame reveal">

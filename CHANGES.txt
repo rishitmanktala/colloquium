@@ -1,0 +1,14 @@
+COLLOQUIUM 2.0 — FINAL UPDATES
+==============================
+
+CHANGES:
+✓ Removed Nancy Sharma from Contact section
+✓ Added credits section right after hero with 3 names only:
+  - Rishit Manktala
+  - Ayush Jain
+  - Yuvraj
+
+Credits appear as subtle cards below home page (not at bottom).
+No role labels, just names.
+
+Ready to deploy!
