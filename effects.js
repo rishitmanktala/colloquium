@@ -97,7 +97,7 @@
   }
 
   /* ---------------- Hero emblem parallax tilt ---------------- */
-  const heroSection = document.querySelector(".hero-section");
+  const heroSection = document.querySelector(".hero-section, .coming-soon-main");
   const emblemTilt = document.getElementById("emblemTilt");
   if (heroSection && emblemTilt && isFinePointer && !reduceMotion) {
     heroSection.addEventListener("mousemove", (e) => {
